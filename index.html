@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('HZ4o-4vC-B8knWHu9');
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <h2 class="heading mb-4">BondReco - an AI Solution</h2>
+                            <p>Your Bridge to a Secure Financial Future   </p>
+                            <p><img src="contactus.png" alt="Image" class="img-fluid"></p>
+                        </div>
+                        <div class="col-md-6">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <form action="email.php" class="mb-5" method="post" id="contactForm" name="contactForm">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" name="name" id="name"
+                                            placeholder="Your Name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" name="company" id="email1"
+                                            placeholder="Company Name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="tel" class="form-control" name="number" id="subject"
+                                            placeholder="Phone Number">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <textarea class="form-control" name="message" id="tenant" cols="30"
+                                            rows="1" placeholder="Tenant ID"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="submit" value="Register"
+                                            class="btn btn-primary rounded-0 py-2 px-4">
+                                        <span class="submitting"></span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="form-message-warning mt-4"></div>
+                            <div id="form-message-success">
+                                Your message was sent, thank you!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#contactForm').validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    company: {
+                        required: true
+                    },
+                    number: {
+                        required: true
+                    },
+                    tenant: {
+                        required: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: 'Please enter your name'
+                    },
+                    email: {
+                        required: 'Please enter your email',
+                        email: 'Please enter a valid email address'
+                    },
+                    company: {
+                        required: 'Please enter your company name'
+                    },
+                    number: {
+                        required: 'Please enter your phone number'
+                    },
+                    tenant: {
+                        required: 'Please enter your tenant ID'
+                    }
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>
